@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        let x = 0;
+        let array = new Array();
+        let reversedArray = new Array();
+        function add_element_to_array() {
+            array[x] = document.getElementById("txtValue").value;
+            alert("Element: " + array[x] + " Added at index " + x);
+            x++;
+            document.getElementById("txtValue ").value = "";
+        }
+
+        function display_array() {
+            let e = "<hr/>";
+            for (let i = 0; i < array.length; i++) {
+                e += "Element " + i + " = " + array[i] + "<br/>";
+            }
+            document.getElementById("result").innerHTML = e;
+        }
+
+        function reverseArray() {
+            for (let i = 0; i < array.length; i++) {
+                reversedArray[i] = array[array.length - i - 1];
+                document.getElementById(("reversedArray")).innerHTML = "Reversed Array: " + "[" + reversedArray + "]";
+            }
+        }
+
+        function findValue() {
+            let neededValue = parseInt(prompt("Which value do you want to find?"));
+            for (let i = 0; i < array.length; i++) {
+                if (neededValue == array[i]) {
+                    alert("Your value is in position " + i);
+                    console.log(i);
+                }
+            }
+        }
+
+        function findMax() {
+            let max = array[0];
+            for (let i = 1; i < array.length; i++)
+                if (array[i] > max) {
+                    max = array[i];
+                    var maxIndex = i;
+                }
+            alert("Max value is " + max + "found at position " + maxIndex);
+            console.log("max is" + max);
+        }
+    </script>
+    <style>
+        body {padding-top:50px}
+    </style>
+</head>
+<body>
+    <h1>Bai 1</h1>
+    <input type="text" id="txtValue"></input>
+    <input type="button" id="btnAdd" value="Add" onclick="add_element_to_array();"></input>
+    <input type="button" id="btnDisplay" value="Display" onclick="display_array();"></input>
+    <div id="result"></div>
+
+    <h1>Bai 2</h1>
+    <button onclick="reverseArray()">REVERSE</button>
+    <div id="reversedArray" ></div> <br>
+
+    <h1>Bai 3</h1>
+    <button onclick="findValue()">FIND VALUE</button>
+
+    <h1>Bai 4</h1>
+    <button onclick="findMax()">FIND MAX</button>
+</body>
+</html>
